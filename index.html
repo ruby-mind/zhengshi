@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- <meta property="og:image" content="thumbnail.png" /> -->
+		<title>Software Engineer</title>
+
+		<link rel="stylesheet" href="./css/main.css">
+	</head>
+	<body>
+		<canvas id="canvas" width="300" height="300"></canvas>
+		<script type="text/javascript" src="js/bundle.js"></script>
+
+		<script type="text/javascript">
+
+				webGLInterface.setOptions({
+					CANVAS: document.querySelector('#canvas'),
+					ROOT_FOLDER: './world'
+				})
+
+				webGLInterface.preload().then(() => {
+
+					webGLInterface.start().then(()=>{
+
+						webGLInterface.play()
+
+						webGLInterface.resize({ w:window.innerWidth, h: window.innerHeight })
+
+					})
+
+					window.addEventListener('resize',()=>{
+						webGLInterface.resize({w:window.innerWidth, h: window.innerHeight})
+					})
+
+				})
+
+
+		</script>
+	</body>
+</html>
